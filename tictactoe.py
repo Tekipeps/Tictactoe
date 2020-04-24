@@ -7,6 +7,7 @@ board = [' ', ' ', ' ',
          ' ', ' ', ' ',
          ' ', ' ', ' ']
 
+
 def displayBoard():
     print(board[0] + '|' + board[1] + '|' + board[2])
     print('-+-+-')
@@ -14,6 +15,14 @@ def displayBoard():
     print('-+-+-')
     print(board[6] + '|' + board[7] + '|' + board[8])
     print('-----')
+
+
+def rand():
+    arr = []
+    for i in range(0, 9):
+        if board[i] == ' ':
+            arr.append(i)
+    return random.choice(arr)
 
 
 def checkWin():
@@ -50,9 +59,7 @@ def move(t):
                 continue
 
     elif t == 'o':
-        nboard = []
-        print(nboard)   
-        move = random.choice(nboard)
+        move = rand()
         board[move] = t
         displayBoard()
 
