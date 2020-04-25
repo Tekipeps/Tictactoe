@@ -8,14 +8,18 @@ board = [' ', ' ', ' ',
          ' ', ' ', ' ']
 
 
+# def checkHorizontal():
+# def checkVertical():
+# def checkForWardDiagonal():
+# def checkBackwardDiagonal():
+
 def displayBoard():
     print(board[0] + '|' + board[1] + '|' + board[2])
     print('-+-+-')
     print(board[3] + '|' + board[4] + '|' + board[5])
     print('-+-+-')
     print(board[6] + '|' + board[7] + '|' + board[8])
-    print('-----')
-
+    print('    ')
 
 def rand():
     arr = []
@@ -23,7 +27,6 @@ def rand():
         if board[i] == ' ':
             arr.append(i)
     return random.choice(arr)
-
 
 def checkWin():
     if board[0] == board[1] == board[2]:
@@ -45,7 +48,6 @@ def checkWin():
     else:
         return {'win': False, 'player': 'tie'}
 
-
 def move(t):
     if t == 'x':
         while True:
@@ -63,7 +65,6 @@ def move(t):
         board[move] = t
         displayBoard()
 
-
 def restart():
     restart = input('Do you want to restart? Y/n : ')
     if restart.lower() == 'y':
@@ -73,7 +74,6 @@ def restart():
     else:
         print('Goodbye!')
         exit()
-
 
 def game():
     turn = 'x'
@@ -90,14 +90,13 @@ def game():
             elif won['win'] == True and won['player'] == 'O':
                 print("Too bad. computer won!")
                 restart()
-            elif won['win'] == False and i >= 8:
+            elif won['win'] == False and i > 8:
                 print('Nice try its a tie')
                 restart()
         if turn == 'x':
             turn = 'o'
         else:
             turn = 'x'
-
 
 if __name__ == "__main__":
     game()
